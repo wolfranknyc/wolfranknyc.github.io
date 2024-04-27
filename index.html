@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AG Wolf Trading Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+    <style>
+/************************ CSS Styles *****************************************************/
+
+        body {
+            font-family: 'Poppins', Arial;
+            font-weight: 100;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: rgb(255, 255, 255);
+            min-height: 100vh;
+            position: relative;
+            background-color: #000;
+
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #fff;
+            font: 'Poppins';
+            font-weight: bold;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fdfbfb;
+            padding: 5px 20px;
+            background-color: #000;
+            font-size: 12px;
+            font-style: bold;
+            font-weight: bold;
+            font: 'Poppins';
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            color: #fffdfd;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+            text-decoration: none;
+            color: #fcf8f8;
+        }
+        nav ul li a {
+            color: rgb(253, 251, 251);
+            text-decoration: none;
+
+        }
+        header {
+            font: 'Arial';
+            text-align: center;
+            padding: 40px 0;
+            background-color: #080808;
+            padding-bottom: 80px;
+            color: #fff;
+            background-image: url('images/chartbackgr.jpg');
+
+        }
+        header h1 {
+            font-size: 60px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #fdfdfd;
+            text-align: center;
+            font-weight: 900;
+            padding-left: 20%;
+            padding-right:20%;
+            font: 'Arial';
+
+        }
+
+        header p {
+            font-size: 20px;
+            color: #fdfafa;
+        }
+        .content {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #00000000;
+            color: #fff;
+        }
+        .column-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 40px;
+            font: 'Arial Bold';
+            padding-right: 10px;
+        }
+        .column {
+            width: 50%;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+        .leftcolumn {
+            width: calc(50% - 10px);
+            margin-bottom: 20px;
+            float: left;
+            font: 'Arial Bold';
+            padding-right: 10px;
+            font-style: normal;
+        }
+        .rightcolumn {
+            width: 40%;
+            margin-bottom: 20px;
+            float: right;
+        }
+        .rightcolumn img{
+            width: 100%;
+            height: 80px;
+        }
+        .column img {
+            width: 200px;
+            margin-bottom: 10px;
+        }
+     
+
+
+       .software-container {
+            padding-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            background-color: #000;
+            padding-left: 20px;
+            padding-bottom: 80px;
+            color: #fff;
+            float: left;
+            width: 50%;
+            padding-right: 20px;
+            font-size: 45px;
+            background-image: url('images/ninja4.jpg');
+        }
+        .software {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            display: block;
+            margin: 0 auto;
+            border-radius: 20px;
+            color: #fff;
+            padding-right: 10px;
+            float: left;
+        }
+        .software h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        .software p {
+            color: #ffffff;
+        }
+
+        .softwareright-container{
+            padding-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            background-color: #000;
+            padding-left: 20px;
+            padding-bottom: 80px;
+            color: #fff;
+            float: right;
+            width: 50%;
+            padding-right: 20px;
+            font-size: 45px;
+
+        }
+
+        .softwareright{
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            display: block;
+            margin: 0 auto;
+            border-radius: 20px;
+            color: #fff;
+            padding-right: 10px;
+            float: right;
+            font-size: 45px;
+            width: 40%;
+
+        }
+        .softwareleft{
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            display: block;
+            margin: 0 auto;
+            border-radius: 20px;
+            color: #fff;
+            padding-right: 10px;
+            float: left;
+            font-size: 30px;
+            width: 40%;
+
+        }
+
+        .softwareleft h1{
+            font: 'Poppins';
+            font-size: 40px;
+            color: #fff;
+        }
+        .softwareleft p{
+            font: 'Poppins';
+            font-size: 30px;
+            color: #fff;
+        }
+
+        .about-container {
+            padding-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            background-color: #000;
+            padding-left: 20px;
+            padding-bottom: 80px;
+            color: #fff;
+            float: right;
+            width: 50%;
+            padding-right: 20px;
+            font-size: 24px;
+        }
+        .about {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            display: block;
+            margin: 0 auto;
+            border-radius: 20px;
+            color: #fff;
+            padding-right: 10px;
+            float: left;
+        }
+        .about h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        .about p {
+            color: #ffffff;
+        }
+        .text {
+            text-align: justify;
+            display: block;
+          }
+          .text2 {
+            display: block;
+            float: left;
+          }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid #02c1fc;
+            background-color: #02c1fc;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+          }
+          
+          .button:hover {
+            background-color: #08fa44;
+            border: 2px solid #000;
+            color: #fff;
+            padding: 10px 20px;
+          }
+
+        img {
+            width: 100%;
+            min-height: 460px;
+           
+            margin: 0 auto;
+            float: right;
+            border-radius: 20px;
+        }
+        .image-box {
+            float: right;
+            width: 50%;
+            padding-top: 30px;
+        }
+ 
+        .image-box2 {
+            float: right;
+            width: 100%;
+            border-radius: 20px;
+            padding-top: 180px;
+        }
+        .round-image{ 
+            width: 100%;
+            border-radius: 20px;
+
+        }
+        .rounded-image2 {
+            width: 100%;
+            border-radius: 20px;
+            min-height: 520px;
+            min-width: 435px;
+        }
+         /* Footer Styles */
+         .footer {
+            color: rgb(255, 255, 255);
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            clear: both;
+        }
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+        footer ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        footer ul li a {
+            color: rgb(252, 249, 249);
+            text-decoration: none;
+        }
+        
+        
+        /****************************** Media query for mobile devices */
+        @media only screen and (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
+            .column {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .leftcolumn {
+                width: 100%;
+                margin-bottom: 20px;
+                float: left;
+            }
+            .rightcolumn {
+                width: 100%;
+                margin-bottom: 20px;
+                float: right;
+            }
+            .column img {
+                width: 100%;
+                height: 150px;
+                margin-bottom: 10px;
+            }
+            .container {
+                max-width: 100%;
+                margin: 0 auto;
+                padding: 20px;
+            }
+            .about-container {
+                padding-top: 20px;
+                margin-bottom: 20px;
+                border-radius: 20px;
+                background-color: #000;
+                padding-left: 20px;
+                padding-bottom: 80px;
+                color: #fff;
+                float: left;
+                width: 100%;
+                padding-right: 20px;
+            }
+            .about {
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                display: inline-block;
+                display: block;
+                margin: 0 auto;
+                border-radius: 20px;
+                color: #fff;
+                padding-right: 10px;
+                float: left;
+            }
+            .about h2 {
+                font-size: 24px;
+                margin-bottom: 10px;
+                color: #ffffff;
+            }
+            .about p {
+                color: #ffffff;
+            }
+             /* Footer Styles */
+        .footer {
+            color: rgb(255, 255, 255);
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            clear: both;
+        }
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+        footer ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        footer ul li a {
+            color: rgb(252, 249, 249);
+            text-decoration: none;
+        }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>
+            <ul>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header>
+        <h1>Learn to Trade Futures and Earn Funding</h1>
+        <p>Take our 3 day digital bootcamp and earn funding to trade futures.</p>
+    </header>
+    <div class="container">
+        <div class="content">
+            <div class="column-container">
+                <div class="rightcolumn">
+                    <h1>Futures Bootcamp</h1>
+                    <p class="text">A 3-day digital bootcamp to master the fundamentals of futures trading.<br><br> Embark on an intensive journey into the world of futures trading with our Fast-Track Futures Trading Crash Course. <br><br>
+                    </p>
+                </div>
+                <div class="leftcolumn">
+                    <h1>Live Chat Room</h1>
+                    <p class="text">Our platform offers a dynamic environment where you can ask questions and get answers: Whether you're a seasoned trader or just starting out, our chat room is the perfect place to ask questions and receive prompt answers from experienced team members.<br><br> </ul>
+                    </p>
+                    
+                </div>
+                <div class="container">
+                    <a href="#" class="button">Start Learning</a>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="softwareright">
+        <div class="image-box2"><img src="images/dompinterest.png" alt="Image" class="rounded-image2">
+        </div>
+        
+    </div>
+
+<div class="softwareleft">
+    <br> <br> <br> <br>
+    
+    <h1>Mastering the Futures Market with NinjaTrader: Your Gateway to Prop Firm Funding</h1>
+<p>
+    Conquer the futures market with NinjaTrader. Our program equips you to master the platform, develop a winning strategy, and impress prop firms for funded account opportunities. Join us and unlock your trading potential.
+    <br> <br> <br> <br>
+</p>
+
+
+</div>
+
+
+
+    <div class="about-container">
+        <br> <br> <br>  <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    <h2>About Us</h2>
+    <p>With over 15 years of experience in trading, I bring a wealth of professional expertise to the table. Having navigated the intricacies of the futures market and commodity trading space, I offer invaluable insights and knowledge to help you succeed in your trading journey. My past experience includes fund management within the futures market, providing a solid foundation for guiding aspiring traders towards achieving their financial goals.</p>
+</div>
+
+        </div>
+    <footer class="footer">
+        <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
