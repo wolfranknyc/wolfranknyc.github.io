@@ -3,612 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AG Wolf Trading Academy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+    <title>Sample Page</title>
+    <meta name="description" content="Join our Futures Trading Bootcamp to learn about trading futures and improve your trading skills.">
+    <meta name="keywords" content="futures trading, trading bootcamp, futures market, trading skills">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    <!-- Add more meta tags as needed -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-/************************ CSS Styles *****************************************************/
-
         body {
-            font-family: 'Poppins', Arial;
-            font-weight: 100;
             margin: 0;
             padding: 0;
-            background-size: cover;
-            background-repeat: no-repeat;
-            color: rgb(255, 255, 255);
-            min-height: 100vh;
-            position: relative;
-            background-color: #000;
+            font-family: 'Roboto', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+        }
 
+        nav  {
+            background-color: #ffffff;
+            color: #000000;
+            padding-left: 20px;
+            float: left;
+            width: 100%;
+            text-align: left;
+            font-size: 32px;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            color: #fff;
-            font: 'Poppins';
-            font-weight: bold;
+
+        nav img {
+            height: 30px; 
+            width: 90px;/* Adjust the height of the logo */
+            margin-left:2%;    
+            padding-left: 40px;   
+            padding-right: 10px; 
         }
-        .container2{
-            max-width: 1200px;
-            min-width: 100%;
-            margin: 0 auto;
-            padding: 20px;
-            color: #fff;
-            font: 'Poppins';
-            font-weight: bold;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #fdfbfb;
-            background-color: #000;
-            font-size: 14px;
-            font-style: bold;
-            font-weight: bold;
-            font: 'Poppins';
-            padding-left: 10px;
-        }
+
         nav ul {
             list-style-type: none;
             margin: 0;
-            padding: 0;
-            color: #fffdfd;
+            padding: 10px;
+            color: #000000;
+            width: 100%;
         }
+
         nav ul li {
             display: inline-block;
-            margin-right: 20px;
+            margin-right: 10px;
             text-decoration: none;
-            color: #fcf8f8;
+            color: #000000;
         }
+
         nav ul li a {
-            color: rgb(253, 251, 251);
+            color: #000000;
             text-decoration: none;
-
-        }
-        header {
-            font: 'Arial';
-            text-align: center;
-            padding: 40px 0;
-            background-color: #080808;
-            padding-bottom: 80px;
-            color: #fff;
-            background-image: url('images/chartbackgr.jpg');
-
-        }
-        header h1 {
-            font-size: 60px;
-            margin-bottom: 10px;
-            text-decoration: none;
-            color: #fdfdfd;
-            text-align: center;
-            font-weight: 900;
-            padding-left: 20%;
-            padding-right:20%;
-            font: 'Arial';
-
         }
 
-        header p {
-            font-size: 20px;
-            color: #fdfafa;
+        .container {
+            margin: 0 auto; /* Centers the container horizontally */
+            width: 80%; /* Adjust the width as needed */
+            background-color: #f0f0f0; /* Example background color */
+            padding: 20px;
+            overflow: hidden; /* Clear floats */
         }
-        .content {
-            text-align: center;
-            padding: 40px 0;
-            background-color: #00000000;
-            color: #fff;
-        }
-        .column-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-top: 40px;
-            font: 'Arial Bold';
-            padding-right: 10px;
-        }
+
         .column {
+            float: left;
             width: 50%;
-            margin-bottom: 20px;
+        }
+
+        .column h2 {
+            font-size: 40px;
+        }
+
+        .column hr {
+            width: 90%;
+        }
+
+        .column p {
+            font-size: 20px;
+            text-align: justify;
+            margin: 0;
+            padding: 10px 0;
+        }
+
+        .image-placeholder {
+            min-width: 420px; /* Adjust according to your image height */
+            height: 1280px;
+        }
+
+        .image-placeholder img {
+            height: 880px;
+            width: 508px;
+        }
+
+        .faq {
+            width: 100%;
+            padding-top: 20px;
+            clear: both; /* Clear floats */
+        }
+
+        .faq hr {
+            width: 100%;
+        }
+
+        .faq h2 {
+            font-size: 28px;
+            color: #000000;
+        }
+
+        .faq p {
+            font-size: 20px;
+            text-align: justify;
+            margin: 0;
+            padding: 10px 0;
+        }
+
+        .footer {
+            clear: both;
+            margin-top: 40px;
+            background-color: #333333;
+            color: #ffffff;
             padding: 10px;
         }
-        .leftcolumn {
-            width: calc(50% - 10px);
-            margin-bottom: 20px;
-            float: left;
-            font: 'Arial Bold';
-            padding-right: 10px;
-            font-style: normal;
-        }
-        .rightcolumn {
-            width: 40%;
-            margin-bottom: 20px;
-            float: right;
-        }
-        .rightcolumn img{
-            width: 100%;
-            height: 80px;
-        }
-        .column img {
-            width: 200px;
-            margin-bottom: 10px;
-        }
-     
 
-
-       .software-container {
-            padding-top: 20px;
-            margin-bottom: 20px;
-            border-radius: 20px;
-            background-color: #000;
-            padding-left: 20px;
-            padding-bottom: 80px;
-            color: #fff;
-            float: left;
-            width: 50%;
-            padding-right: 20px;
-            font-size: 45px;
-            background-image: url('images/ninja4.jpg');
-        }
-        .software {
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-            display: block;
-            margin: 0 auto;
-            border-radius: 20px;
-            color: #fff;
-            padding-right: 10px;
-            float: left;
-        }
-        .software h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-        .software p {
-            color: #ffffff;
-        }
-
-        .softwareright-container{
-            padding-top: 20px;
-            margin-bottom: 20px;
-            border-radius: 20px;
-            background-color: #000;
-            padding-left: 20px;
-            padding-bottom: 80px;
-            color: #fff;
-            float: right;
-            width: 50%;
-            padding-right: 20px;
-            font-size: 45px;
-
-        }
-
-        .softwareright{
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-            display: block;
-            margin: 0 auto;
-            border-radius: 20px;
-            color: #fff;
-            padding-right: 10px;
-            float: right;
-            font-size: 45px;
-            width: 40%;
-
-        }
-        .softwareleft{
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-            display: block;
-            margin: 0 auto;
-            border-radius: 20px;
-            color: #fff;
-            padding-right: 10px;
-            float: left;
-            font-size: 30px;
-            width: 40%;
-
-        }
-
-        .softwareleft h1{
-            font: 'Poppins';
-            font-size: 40px;
-            color: #fff;
-        }
-        .softwareleft p{
-            font: 'Poppins';
-            font-size: 30px;
-            color: #fff;
-        }
-
-        .about-container {
-            padding-top: 20px;
-            margin-bottom: 20px;
-            border-radius: 20px;
-            background-color: #000;
-            padding-left: 20px;
-            padding-bottom: 80px;
-            color: #fff;
-            float: right;
-            width: 50%;
-            padding-right: 20px;
-            font-size: 24px;
-        }
-        .about {
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-            display: block;
-            margin: 0 auto;
-            border-radius: 20px;
-            color: #fff;
-            padding-right: 10px;
-            float: left;
-        }
-        .about h2 {
-            font-size: 34px;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-        .about p {
-            color: #ffffff;
-        }
-        .text {
+        .footer p {
             text-align: justify;
-            display: block;
-          }
-          .text2 {
-            display: block;
-            float: left;
-          }
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            border: 2px solid #02c1fc;
-            background-color: #02c1fc;
-            color: #fff;
-            font-size: 16px;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 5px;
-          }
-          
-          .button:hover {
-            background-color: #08fa44;
-            border: 2px solid #000;
-            color: #fff;
-            padding: 10px 20px;
-          }
+            padding-top: 20px;
+        }
 
-        img {
-            width: 100%;
-            min-height: 460px;
-           
-            margin: 0 auto;
-            float: right;
-            border-radius: 20px;
-        }
-        .image-box {
-            float: right;
-            width: 50%;
-            padding-top: 30px;
-        }
- 
-        .image-box2 {
-            float: right;
-            width: 100%;
-            border-radius: 20px;
-            padding-top: 180px;
-        }
-        .round-image{ 
-            width: 100%;
-            border-radius: 20px;
-
-        }
-        .rounded-image2 {
-            width: 100%;
-            border-radius: 20px;
-            min-height: 520px;
-            min-width: 435px;
-        }
-         /* Footer Styles */
-         .footer {
-            color: rgb(255, 255, 255);
-            padding: 20px 0;
-            text-align: center;
-            position: relative;
-            width: 100%;
-            clear: both;
-        }
-        footer ul {
-            list-style-type: none;
-            padding: 0;
-            margin-bottom: 10px;
-        }
-        footer ul li {
-            display: inline-block;
-            margin-right: 10px;
-        }
-        footer ul li a {
-            color: rgb(252, 249, 249);
-            text-decoration: none;
-        }
-        .mobileimgheader{
-           
-            width: 100%;
-
-        }
-        
-        /****************************** Media query for mobile devices */
-
-        @media only screen and (max-width: 600px) {
-            body {
-                font-size: 14px;
-            }
-        
-            header {
-                font: 'Arial';
-                text-align: center;
-                padding: 30px 0;
-                background-color: #080808;
-                padding-bottom: 80px;
-                color: #fff;
-                background-image: url('images/quantum.jpg');
-    
-            }
-            header h1 {
-                font-size: 45px;
-                margin-bottom: 10px;
-                text-decoration: none;
-                color: #fdfdfd;
-                text-align: center;
-                font-weight: 900;
-                padding-left: 20%;
-                padding-right:20%;
-                font: 'Arial';
-    
-            }
-    
-            header p {
-                font-size: 34px;
-                color: #fdfafa;
-            }
-
-            .mobileimgheader{
-                background-image: url('chat.jpg');
-                width: 80%;
-    
-            }
-            .column {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-            .leftcolumn {
-                width: 100%;
-                margin-bottom: 20px;
-                float: left;
-            }
-            .rightcolumn {
-                width: 100%;
-                margin-bottom: 20px;
-                float: right;
-            }
-            .column img {
-                width: 100%;
-                height: 150px;
-                margin-bottom: 10px;
-            }
-            .container {
-                max-width: 100%;
-                margin: 0 auto;
-                padding: 20px;
-            }
-            .softwareleft{
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                display: inline-block;
-                display: block;
-                margin: 0 auto;
-                border-radius: 20px;
-                color: #fff;
-                padding-right: 10px;
-                font-size: 30px;
-                width: 100%;
-    
-            }
-            .softwareright-container{
-                padding-top: 20px;
-                margin-bottom: 20px;
-                border-radius: 20px;
-                background-color: #000;
-                padding-left: 20px;
-                padding-bottom: 80px;
-                color: #fff;
-                float: center;
-                width: 100%;
-                padding-right: 20px;
-                font-size: 45px;
-    
-            }
-    
-            .softwareright{
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                display: inline-block;
-                display: block;
-                margin: 0 auto;
-                border-radius: 20px;
-                color: #fff;
-                padding-right: 10px;
-                float: center;
-                font-size: 45px;
-                width: 100%;
-    
-            }
-    
-            .softwareleft h1{
-                font: 'Poppins';
-                font-size: 40px;
-                color: #fff;
-            }
-            .softwareleft p{
-                font: 'Poppins';
-                font-size: 30px;
-                color: #fff;
-            }
-    
-            .image-box2 {
-                width: 100%;
-                border-radius: 20px;
-                padding-top: 180px;
-            }
-            .about-container {
-        
-                margin-bottom: 20px;
-                border-radius: 20px;
-                background-color: #000;
-                padding-left: 20px;
-                padding-bottom: 80px;
-                color: #fff;
-                float: left;
-                width: 100%;
-                padding-right: 20px;
-            }
-            .about {
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                display: inline-block;
-                display: block;
-                margin: 0 auto;
-                border-radius: 20px;
-                color: #fff;
-                padding-right: 10px;
-                float: left;
-            }
-            .about h2 {
-                font-size: 24px;
-                margin-bottom: 10px;
-                color: #ffffff;
-            }
-            .about p {
-                color: #ffffff;
-            }
-             /* Footer Styles */
-        .footer {
-            color: rgb(255, 255, 255);
-            padding: 20px 0;
-            text-align: center;
-            position: relative;
-            width: 100%;
-            clear: both;
-        }
-        footer ul {
-            list-style-type: none;
-            padding: 0;
-            margin-bottom: 10px;
-        }
-        footer ul li {
-            display: inline-block;
-            margin-right: 10px;
-        }
-        footer ul li a {
-            color: rgb(252, 249, 249);
-            text-decoration: none;
-        }
+        .footer h3 {
+            text-align: justify;
+            padding-top: 20px;
         }
     </style>
 </head>
 <body>
-    <nav>
-
-        <div>
-            <ul>
-                <li><a href="#">AGW Trading Academy</a></li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </div>
-    </nav>
-    <header>
-        <h1>Learn to Trade Futures </h1>
-        <p>Take our 3 day digital bootcamp and earn funding.</p>
-    </header>
-    <div class="mobileimgheader"></div>
-    <div class="container">
-      
-                <div class="rightcolumn">
-                    <h1>Futures Bootcamp</h1>
-                    <p class="text">A 3-day digital bootcamp to master the fundamentals of futures trading.<br><br> Embark on an intensive journey into the world of futures trading with our Fast-Track Futures Trading Crash Course. <br><br>
-                    </p>
-                </div>
-                <div class="leftcolumn">
-                    <h1>Live Chat Room</h1>
-                    <p class="text">Our platform offers a dynamic environment where you can ask questions and get answers: Whether you're a seasoned trader or just starting out, our chat room is the perfect place to ask questions and receive prompt answers from experienced team members.<br><br> </ul>
-                    </p>
-                    
-                </div>
-                <div class="container">
-                    <a href="#" class="button">Start Learning</a>
-
-                </div>
-                
-            </div>
-     
-    <div class="softwareright">
-        <div class="image-box2"><img src="images/dompinterest.png" alt="Image" class="rounded-image2">
-        </div>
-        
-    </div>
-
-<div class="softwareleft">
-    <br> <br> <br> <br>
-    
-    <h1>Mastering the Futures Market with NinjaTrader: Your Gateway to Prop Firm Funding</h1>
-<p>
-    Conquer the futures market with NinjaTrader. Our program equips you to master the platform, develop a winning strategy, and impress prop firms for funded account opportunities. Join us and unlock your trading potential.
-    <br> <br> <br> <br> <br> <br> <br> <br> <br> 
-
-    <h1>Work for yourself and Trade Risk Free!</h1>
-    <p> After taking our course, you may pass an evaluation, you will be funded with a performance account.  Here you risk ZERO capital and simply pay a monthly fee for access!!! Learn to trade any instrument using the same strategies and enjoy working for yourself!</p>
-</p>
-</div>
-
-
-    <div class="about-container">
-        <br> <br> 
-    <h2>About Us</h2>
-    <p>With over 15 years of experience in trading, I bring a wealth of professional expertise to the table. Having navigated the intricacies of the futures market and commodity trading space, I offer invaluable insights and knowledge to help you succeed in your trading journey. My past experience includes fund management within the futures market, providing a solid foundation for guiding aspiring traders towards achieving their financial goals.</p>
-
-    <div class="image-box2"><img src="images/twophones.png" alt="Image" class="rounded-image2">
-    </div>
-
-</div>
-
-</div>
- 
-    
-  
-        
-    <footer class="footer">
+<nav>
+    <div>
         <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <img src="images/grey.jpg" alt="Logo"> <!-- Adjust the src attribute with your actual logo path -->
+            <li><a href="#">ag wolf: academy</a></li>
         </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="column">
+        <h2>Futures Trading Bootcamp</h2>
+        <hr>
+        <h3>Text Goes Here</h3>
+        <p>A 3-day digital bootcamp to master the fundamentals of futures trading. Embark on an intensive journey into the world of futures trading with our Fast-Track Futures Trading Crash Course. Start Learning</p>
+        <br>
+        <h2>Live Daily Chatroom</h2>
+        <hr>
+        <h3>Text Goes Here</h3>
+        <p>Our platform offers a dynamic environment where you can ask questions and get answers: Whether you're a seasoned trader or just starting out, our chat room is the perfect place to ask questions and receive prompt answers from experienced team members.</p>
+        <br><br>
+    </div>
+    <div class="column">
+        <div class="image-placeholder"><img src="images/grey.jpg" alt="Logo"></div>
+    </div>
+</div>  
+<div class="container">
+    <div class="faq">
+        <hr>
+        <h2>FAQ: Course</h2>
+        <p>1. What topics are covered in the Futures Trading Bootcamp?</p>
+        <p>2. Is there any prerequisite knowledge required to enroll in the course?</p>
+        <p>3. How long does the bootcamp last?</p>
+        <p>4. Are there any resources provided after completing the course?</p>
+        <p>5. Can I access the course materials after the bootcamp ends?</p>
+        <hr>
+        <h2>Live Chat Room</h2>
+        <p>6. How do I join the live chat room?</p>
+        <p>7. What are the operating hours of the chat room?</p>
+        <p>8. Is there a moderator available to answer questions?</p>
+        <p>9. Can I interact with other participants in the chat room?</p>
+        <p>10. Are there any rules or guidelines for using the chat room?</p>
+    </div>
+    <footer class="footer">
+        <div class="column">
+            <h3>About</h3>
+            <p>About information goes here.</p>
+        </div>
+        <div class="column">
+            <h3>Footer</h3>
+            <p>Footer information goes here.</p>
+        </div>
     </footer>
+</div>
 </body>
 </html>
-
