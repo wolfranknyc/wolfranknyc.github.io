@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample Page</title>
+    <title>AG Wolf : Futures Trading Academy</title>
     <meta name="description" content="Join our Futures Trading Bootcamp to learn about trading futures and improve your trading skills.">
     <meta name="keywords" content="futures trading, trading bootcamp, futures market, trading skills">
     <meta name="author" content="Your Name">
@@ -17,6 +17,9 @@
             font-family: 'Roboto', sans-serif;
             background-color: #ffffff;
             color: #000000;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
         }
 
         nav  {
@@ -27,6 +30,7 @@
             width: 100%;
             text-align: left;
             font-size: 32px;
+            position: fixed;
         }
 
         nav img {
@@ -85,7 +89,14 @@
             font-size: 20px;
             color: #fdfafa;
         }
+
+        .rounded-image {
+            border-radius: 20px; /* Adjust the value to change the roundness */
+        }
         .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
             margin: 0 auto; /* Centers the container horizontally */
             width: 80%; /* Adjust the width as needed */
             background-color: #ffffff; /* Example background color */
@@ -93,58 +104,42 @@
             overflow: hidden; /* Clear floats */
             border-radius: 20px;
             padding-bottom: 50px;
+
         }
 
-        .column {
-            float: left;
-            width: 50%;
-        }
-
-        .column h2 {
-            font-size: 40px;
-        }
-
-        .column hr {
-            width: 90%;
-        }
-
-        .column p {
-            font-size: 20px;
-            text-align: justify;
-            margin: 0;
-            padding-right: 10px;
-        }
-
-        .image-placeholder {
-            min-width: 420px; /* Adjust according to your image height */
-            height: 720px;
+        .container2 {     
+            display: flex;
+            justify-content: center; /* Center the content horizontally */
+            align-items: center; /* Center the content vertically */    
+            background-color: #ffffff; /* Example background color */
+            padding: 80px;
+            overflow: hidden; /* Clear floats */
             border-radius: 20px;
-        }
-
-        .image-placeholder img {
-            height: 500px;
             width: 100%;
-            border-radius: 20px;
-            padding-top: 10px;
         }
 
-        .image-placeholder2 {
-            width: 860px; /* Adjust according to your image height */
-            height: 720px;
-            border-radius: 20px;
+        .left-column {
+            flex: 1;
+            padding: 20px;
         }
 
-        .image-placeholder2 img {
-            height: 500px;
-            width: 100%;
-            border-radius: 20px;
-            padding-top: 10px;
+        .right-column {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .center{
+            justify-content: center;       
         }
 
         .faq {
-            width: 100%;
-            padding-top: 20px;
-            clear: both; /* Clear floats */
+            width: 70%; /* Adjust the width of the centered column */
+            max-width: 800px; /* Set a maximum width if needed */
+            padding: 100px; /* Add padding as needed */
+            /* Optionally, add other styling properties */
+            background-color: #000000;
+            border-radius: 10px;
+            color: #fff;
         }
 
         .faq hr {
@@ -153,7 +148,9 @@
 
         .faq h2 {
             font-size: 28px;
-            color: #000000;
+            color: #fff;
+           
+
         }
 
         .faq p {
@@ -161,162 +158,153 @@
             text-align: justify;
             margin: 0;
             padding: 10px 0;
+            
+
         }
 
-        .footer {
-            clear: both;
-            margin-top: 40px;
-            background-color: #333333;
-            color: #000000;
-            padding: 10px;
+        footer {
+            background-color: #000000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            align-items: center;
         }
 
-        .footer p {
-            text-align: justify;
-            padding-top: 20px;
+        /* Styles for the content within the footer */
+        footer p {
+            margin: 0;
         }
+        /* Adjustments for smaller screens */
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
 
-        .footer h3 {
-            text-align: justify;
-            padding-top: 20px;
-        }
-        {
-        /* CSS for mobile */
-@media only screen and (max-width: 600px) {
-    body {
-        font-size: 14px;
-    }
-
-    .container {
-        width: 100%;
-        padding: 10px;
-    }
-    .column {
-        float: left;
-        width: 100%;
-    }
-
-    .column h2 {
-        font-size: 40px;
-    }
-
-    .column hr {
-        width: 90%;
-    }
-
-    .column p {
-        font-size: 20px;
-        text-align: justify;
-        margin: 0;
-        padding-right: 10px;
-    }
-    
-}
+            .left-column, .right-column {
+                flex: none;
+                width: 100%;
+            }
         }
     </style>
-</head>
-<body>
-<nav>
-    <div>
-        <ul>
-   
-            <li><a href="#">ag wolf: trading academy</a></li>
-        </ul>
-    </div>
-</nav>
 
-  <header><h1>Learn to trade futures</h1> 
-    <h2> Take our bootcamp and learn how to earn funding.</h2>
-    
-    </header>
-    <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-    <div class="tradingview-widget-container__widget"></div>
-
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-    {
-    "symbols": [
-      {
-        "proName": "FOREXCOM:SPXUSD",
-        "title": "S&P 500 Index"
-      },
-      {
-        "proName": "FOREXCOM:NSXUSD",
-        "title": "US 100 Cash CFD"
-      },
-      {
-        "proName": "FX_IDC:EURUSD",
-        "title": "EUR to USD"
-      },
-      {
-        "proName": "BITSTAMP:BTCUSD",
-        "title": "Bitcoin"
-      },
-      {
-        "proName": "BITSTAMP:ETHUSD",
-        "title": "Ethereum"
-      },
-      {
-        "description": "NQ 100 Futures",
-        "proName": "CME_MINI:NQ1!"
-      }
-    ],
-    "showSymbolLogo": true,
-    "isTransparent": false,
-    "displayMode": "adaptive",
-    "colorTheme": "dark",
-    "locale": "en"
-  }
-    </script>
-  </div>
-  <!-- TradingView Widget END -->
-<div class="container">
-    <div class="column">
-        <br>
-        <h2>Futures Trading Bootcamp</h2>
-        <h3>Text Goes Here</h3>
+    </head>
+    <body>
+        <nav>
+            <div>
+                <ul>
+           
+                    <li><a href="#">ag wolf: trading academy</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+          <header><h1>Learn to trade futures</h1> 
+            <h2> Take our bootcamp and learn how to earn funding.</h2>
+            
+            </header>
+            <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+        
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
+            "symbols": [
+              {
+                "proName": "FOREXCOM:SPXUSD",
+                "title": "S&P 500 Index"
+              },
+              {
+                "proName": "FOREXCOM:NSXUSD",
+                "title": "US 100 Cash CFD"
+              },
+              {
+                "proName": "FX_IDC:EURUSD",
+                "title": "EUR to USD"
+              },
+              {
+                "proName": "BITSTAMP:BTCUSD",
+                "title": "Bitcoin"
+              },
+              {
+                "proName": "BITSTAMP:ETHUSD",
+                "title": "Ethereum"
+              },
+              {
+                "description": "NQ 100 Futures",
+                "proName": "CME_MINI:NQ1!"
+              }
+            ],
+            "showSymbolLogo": true,
+            "isTransparent": false,
+            "displayMode": "adaptive",
+            "colorTheme": "dark",
+            "locale": "en"
+          }
+            </script>
+          </div>
+          <!-- TradingView Widget END -->
+        <div class="container">
+            <div class="left-column">
+                
+                <h2>Futures Online Course</h2>
+        <h3>3 Day Bootcamp</h3>
         <p>A 3-day digital bootcamp to master the fundamentals of futures trading. Embark on an intensive journey into the world of futures trading with our Fast-Track Futures Trading Crash Course. Start Learning</p>
         <br>
-        <h2>Live Daily Chatroom</h2>
-        <h3>Text Goes Here</h3>
-        <p>Our platform offers a dynamic environment where you can ask questions and get answers: Whether you're a seasoned trader or just starting out, our chat room is the perfect place to ask questions and receive prompt answers from experienced team members.</p>
-        
-        <br>
-        <br>
+                <p>$1500 one time fee</p>
+                <img src="images/ninja3.png" alt="Example Image"  class="rounded-image"  style="max-width: 100%;">
 
+            </div>
+            <div class="right-column">
+                <h2>Live Daily Chatroom</h2>
 
-    </div>
-    <div class="column">
-        <br><br>
-        <div class="image-placeholder"><img src="images/dompinterest.png" alt="Logo"></div>
-    </div>
+                <img src="images/jethrogustaffson.jpg" alt="Example Image"  class="rounded-image"  style="max-width: 100%;">
+              
+                <p>Our platform offers a dynamic environment where you can ask questions and get answers: Whether you're a seasoned trader or just starting out, our chat room is the perfect place to ask questions and receive prompt answers from experienced team members.</p>
+        <br> 
+                <p>$220/mo.</p>
 
-    <div class="container2">
-     <div class="faq">
-        <h2>FAQ: Course</h2>
-        <p>1. What topics are covered in the Futures Trading Bootcamp?</p>
-        <p>2. Is there any prerequisite knowledge required to enroll in the course?</p>
-        <p>3. How long does the bootcamp last?</p>
-        <p>4. Are there any resources provided after completing the course?</p>
-        <p>5. Can I access the course materials after the bootcamp ends?</p>
-        <h2>Live Chat Room</h2>
-        <p>6. How do I join the live chat room?</p>
-        <p>7. What are the operating hours of the chat room?</p>
-        <p>8. Is there a moderator available to answer questions?</p>
-        <p>9. Can I interact with other participants in the chat room?</p>
-        <p>10. Are there any rules or guidelines for using the chat room?</p>
-    </div>
-    <footer class="footer">
-        <div class="column">
-            <h3>About</h3>
-            <p>About information goes here.With over 15 years of experience in trading, I bring a wealth of professional expertise to the table. Having navigated the intricacies of the futures market and commodity trading space, I offer invaluable insights and knowledge to help you succeed in your trading journey. My past experience includes fund management within the futures market, providing a solid foundation for guiding aspiring traders towards achieving their financial goals.</p>
+                ***button goes here****
+            </div>
+       
         </div>
-        <div class="column">
-            <h3>Footer</h3>
-            <p>Footer information goes here.</p>
+
+        <div class="container2">
+            <div class="faq">
+                <h2>FAQ: Course</h2>
+                <p>1. What topics are covered in the Futures Trading Bootcamp?</p>
+                <p>2. Is there any prerequisite knowledge required to enroll in the course?</p>
+                <p>3. How long does the bootcamp last?</p>
+                <p>4. Are there any resources provided after completing the course?</p>
+                <p>5. Can I access the course materials after the bootcamp ends?</p>
+                <h2>Live Chat Room</h2>
+                <p>6. How do I join the live chat room?</p>
+                <p>7. What are the operating hours of the chat room?</p>
+                <p>8. Is there a moderator available to answer questions?</p>
+                <p>9. Can I interact with other participants in the chat room?</p>
+                <p>10. Are there any rules or guidelines for using the chat room?</p>
+                <br><br><br>
+            </div>
+
         </div>
-    </footer>
+      
+   
+  <!-- Footer section -->
+  <footer>
+    <div>
+        <p>Follow us on social media:</p>
     </div>
-</div>
-</body>
-</html>
+  
+    <div>
+        <p>&copy; 2024 Your Website. All rights reserved.</p>
+    </div>
+</footer>
+
+   </body>
+   </html>
