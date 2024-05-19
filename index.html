@@ -1,443 +1,241 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AG Wolf : Futures Trading Academy</title>
-    <meta name="description" content="Join our Futures Trading Bootcamp to learn about trading futures and improve your trading skills.">
-    <meta name="keywords" content="futures trading, trading bootcamp, futures market, trading skills">
-    <meta name="author" content="Your Name">
-    <meta name="robots" content="index, follow">
-    <!-- Add more meta tags as needed -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Banking Data Project</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-            background-color: #ffffff;
-            color: #000000;
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: row;
+       body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        a {
+            color: grey;
+            text-decoration: none;
         }
 
-        nav  {
-            background-color: #000000;
-            color: #000000;
-            padding-left: 20px;
-            float: left;
-            width: 100%;
-            text-align: left;
-            font-size: 32px;
-            position: fixed;
+        a:hover {
+            color: darkgrey;
         }
 
-        nav img {
-            height: 30px; 
-            width: 90px;/* Adjust the height of the logo */
-            margin-left:2%;    
-            padding-left: 100px;   
-            padding-right: 10px; 
-            
+        a:visited {
+            color: grey;
         }
 
-        nav ul {
-            list-style-type: none;
-            margin: 0;
+        a:active {
+            color: grey;
+        }
+        h1 {
+            color: #333;
+        }
+        h2, h3, h4 {
+            color: #444;
+        }
+        h5{
+            font-size: 44px;
+        }
+        pre {
+            background-color: #f4f4f4;
             padding: 10px;
-            color: #ffffff;
-            width: 100%;
-        }
-
-        nav ul li {
-            display: inline-block;
-            margin-right: 10px;
-            text-decoration: none;
-            color: #ffffff;
-        }
-
-        nav ul li a {
-            color: #ffffff;
-            text-decoration: none;
-        }
-        header {
-            font: 'Arial';
-            text-align: center;
-            padding: 40px 0;
-            background-color: #000000;
-            padding-bottom: 280px;
-            color: #fff;
-            width: 100%;
-
-        }
-        header h1 {
-            font-size: 60px;
-            margin-bottom: 10px;
-            text-decoration: none;
-            color: #fdfdfd;
-            text-align: center;
-            font-weight: 900;
-            padding-left: 20%;
-            padding-right:20%;
-            font: 'Arial';
-            padding-top: 100px;
-
-        }
-
-        header p {
-            font-size: 20px;
-            color: #fdfafa;
-        }
-
-        .rounded-image {
-            border-radius: 20px; /* Adjust the value to change the roundness */
+            border: 1px solid #ddd;
         }
         .container {
             display: flex;
-            flex-direction: row;
+            flex-wrap: wrap;
             justify-content: space-between;
-            margin: 0 auto; /* Centers the container horizontally */
-            width: 80%; /* Adjust the width as needed */
-            background-color: #ffffff; /* Example background color */
-            padding: 20px;
-            overflow: hidden; /* Clear floats */
-            border-radius: 20px;
-            padding-bottom: 50px;
-
         }
-
-        .container2 {     
-            display: flex;
-            justify-content: center; /* Center the content horizontally */
-            align-items: center; /* Center the content vertically */    
-            background-color: #ffffff; /* Example background color */
-            padding: 80px;
-            overflow: hidden; /* Clear floats */
-            border-radius: 20px;
-            width: 50%;
-        }
-
-        .container3 {
-
-            margin: 0 auto; /* Centers the container horizontally */
-            width: 80%; /* Adjust the width as needed */
-            background-color: #000000; /* Example background color */
-            padding: 20px;
-            overflow: hidden; /* Clear floats */
-            padding-bottom: 50px;
-            color: #ffffff;
-        }
-
-        .left-column {
-            flex: 1;
-            padding: 20px;
-            width: 50%;
+        .column {
+            width: 40%;
+            margin-bottom: 80px;
             float: left;
         }
-
-        .right-column {
-            flex: 1;
-            padding: 20px;
-            float: right;
+           .column2 {
             width: 40%;
+            margin-bottom: 40px;
+            float: right;
         }
-
-        .colorbox{
-            background-color: #000000;
-            border-radius: 20px;
-            color: #fff;
-            padding:10px;
-            min-height: 400px;
+               .column3 {
+            width: ;
+            margin-bottom: 40px;
+          
         }
-        .colorbox h2{
-            font-size: 28px;
+        .query {
+            margin-bottom: 20px;
         }
-
-        .faq {
-            width: 100%; /* Adjust the width of the centered column */
-            padding: 100px; /* Add padding as needed */
-            /* Optionally, add other styling properties */
-            background-color: #000000;
-            color: #fff;
-
+        .query-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
         }
-
-        .faq hr {
-            width: 100%;
+        .query-result {
+            border-collapse: collapse;
+            width: 80%;
+            font-size: 14px;
         }
-
-        .faq h2 {
-            font-size: 28px;
-            color: #fff;
-           
-
+        .query-result th, .query-result td {
+            border: 1px solid #ddd;
+            padding: 8px;
+         
         }
-
-        .faq p {
-            font-size: 20px;
-            margin: 0;
-            padding: 10px 0;
-            
-
+        .query-result th {
+            background-color: #f2f2f2;
         }
-        
-        .fcontent {
-            width: 100%; /* Adjust the width of the centered column */
-            padding: 10%; /* Add padding as needed */
-            /* Optionally, add other styling properties */
-            background-color: #23c44b;
-            color: #fff;
+        .query-image {
+            margin-top: 20px;
         }
-
-        .fcontent hr {
-            width: 100%;
-        }
-
-        .fcontent h2 {
-            font-size:48px;
-            color: #fff;
-           
-        }
-
-        .fcontent p {
-            font-size: 20px;
-            text-align: justify;
-            margin: 0;
-            padding-left: 40%;
-            width: 100%;
-            
-
-        }
-
-        footer {
-            background-color: #000000;
-            color: #fff;
-            padding: 0px;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            align-items: center;
-            padding: 20px;
-        }
-
-        /* Styles for the content within the footer */
-        footer p {
-            margin: 0;
-            background-color: #000000;
-        }
-
-
- /* Adjustments for smaller screens */ /* Adjustments for smaller screens */ /* Adjustments for smaller screens */ /* Adjustments for smaller screens */ /* Adjustments for smaller screens */
-
-
-        @media screen and (max-width: 428px) {
-            body{
-                min-width: 100%;
-            }
-            .header{
-                width: 100%;
-            }
-
-            
-            .container {
-                width: 100%;
-            }
-
-            .left-column, .right-column {
-                flex: none;
-                width: 100%;
-                float: none;
-            }
-
-            .left-column p, .right-column p{
-                width: 100%;
-                float: none;
-            }
-
-            .fcontent{
-                padding: 2%;
-                padding-left: 1px;
-                min-width: 428px; 
-            }
-            .fcontent h2{
-                font-size: 16px;
-            }
-            .fcontent p{
-                padding: 2%;
-                padding-left: 1px;
-                font-size: 12px;
-
-            }
-            .faq {
-                    width: 100%; /* Adjust the width of the centered column */
-                    /* Optionally, add other styling properties */
-                    background-color: #000000;
-                    color: #fff;
-                }
-                
-            .faq p{
-                    width: 100%;
-                    font-size: 12px ;
-            }
-   
-        
-            .faq h2 {
-                    font-size: 28px;
-                    color: #fff; 
-                    width: 100%;        
-                    }
-            
-            .container2 {     
-            background-color: #ffffff; /* Example background color */
-            overflow: hidden; /* Clear floats */
-            width: 100%;
-            padding-bottom: 40px;
-            margin:0; 
-        } 
-        .container3 {
-
-            margin: 0 auto; /* Centers the container horizontally */
-            width: 100%; /* Adjust the width as needed */
-            background-color: #000000; /* Example background color */
-            overflow: hidden; /* Clear floats */
-            padding-bottom: 50px;
-            color: #ffffff;
-        }
-
-        
-
-        
-/* Adjustments for smaller screens */ /* Adjustments for smaller screens */ /* Adjustments for smaller screens */ /* Adjustments for smaller screens */ /* Adjustments for smaller screens */
-   
+        .query-image img {
+            max-width: 100%;
         }
     </style>
+</head>
 
-    </head>
-    <body>
-        <nav>
-            <div>
-                <ul>
-           
-                    <li><a href="#">ag wolf: trading academy</a></li>
-                </ul>
-            </div>
-        </nav>
-        
-          <header><h1>Learn to trade futures</h1> 
-            <h2> Take our bootcamp and learn how to earn funding.</h2>
-            
-            </header>
-            <!-- TradingView Widget BEGIN -->
-        <div class="tradingview-widget-container">
-            <div class="tradingview-widget-container__widget"></div>
-        
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-            {
-            "symbols": [
-              {
-                "proName": "FOREXCOM:SPXUSD",
-                "title": "S&P 500 Index"
-              },
-              {
-                "proName": "FOREXCOM:NSXUSD",
-                "title": "US 100 Cash CFD"
-              },
-              {
-                "proName": "FX_IDC:EURUSD",
-                "title": "EUR to USD"
-              },
-              {
-                "proName": "BITSTAMP:BTCUSD",
-                "title": "Bitcoin"
-              },
-              {
-                "proName": "BITSTAMP:ETHUSD",
-                "title": "Ethereum"
-              },
-              {
-                "description": "NQ 100 Futures",
-                "proName": "CME_MINI:NQ1!"
-              }
-            ],
-            "showSymbolLogo": true,
-            "isTransparent": false,
-            "displayMode": "adaptive",
-            "colorTheme": "dark",
-            "locale": "en"
-          }
-            </script>
-          </div>
-          <!-- TradingView Widget END -->
-        <div class="container">
-            <div class="left-column">
-                
-                <h2>Futures Online Course</h2>
-        <h3>3 Day Bootcamp</h3>
-        <p>A 3-day digital bootcamp to master the fundamentals of futures trading. Embark on an intensive journey into the world of futures trading with our Fast-Track Futures Trading Crash Course. Start Learning</p>
-        <br>
+<body>
 
-        <img src="images/ninja3.png" alt="Example Image"  class="rounded-image"  style="max-width: 100%;">
-                <p>$1500 one time fee</p>
-            </div>
-            <div class="right-column">
-                <h2>Live Daily Chatroom</h2>
-                <img src="images/jethrogustaffson.jpg" alt="Example Image"  class="rounded-image"  style="max-width: 100%;">             
-                <p>Our platform offers a dynamic environment where you can ask questions and get answers: Whether you're a seasoned trader or just starting out, our chat room is the perfect place to ask questions and receive prompt answers from experienced team members.</p>
-        <br> 
-                <p>$220/mo.</p></div>     
-        </div>
-      
-     
-        <div class="fcontent">
-     <h2>Why join us ? </h2>
-                <p>1. What topics are covered in the Futures Trading Bootcamp?</p>
-                <p>2. Is there any prerequisite knowledge required to enroll in the course?</p>
-                <p>3. How long does the bootcamp last?</p>
-                <p>4. Are there any resources provided after completing the course?</p>
-                <p>5. Can I access the course materials after the bootcamp ends?</p>
-        
-
-           
-            <br><br><br>
-        </div>
-         
-        <div class="faq">
-            <div class="container3"> 
-                <div class="left-column"> <h2>FAQ: Course</h2>
-                <p>1. What topics are covered in the Futures Trading Bootcamp?</p>
-                <p>2. Is there any prerequisite knowledge required to enroll in the course?</p>
-                <p>3. How long does the bootcamp last?</p>
-                <p>4. Are there any resources provided after completing the course?</p>
-                <p>5. Can I access the course materials after the bootcamp ends?</p>
-           </div>
-
-            <div class="right-column"><h2>FAQ: Live Chat Room</h2>
-                <p>1. What topics are covered in the Futures Trading Bootcamp?</p>
-                <p>2. Is there any prerequisite knowledge required to enroll in the course?</p>
-                <p>3. How long does the bootcamp last?</p>
-                <p>4. Are there any resources provided after completing the course?</p>
-                <p>5. Can I access the course materials after the bootcamp ends?</p>
-               </div>
-           
-            <br><br><br>
-        </div></div>
+    <div class="row">
+        <div class="column3">
+            <h1>Banking Data Project</h1>
+  <p>  Wolfrank Guzman >> @guzmanwolfrank: Github >> email: guzmanwolfrank@gmail.com >> c: 917.443.1411 <p>
+            <h2>Overview</h2>
           
-  <!-- Footer section -->
-  <footer>
-    <div>
-        <p>Follow us on social media:</p>
-    </div>
-  
-    <div>
-        <p>&copy; 2024 Your Website. All rights reserved.</p>
-    </div>
-</footer>
+            
+            <p>This project demonstrates the process of transforming a CSV file into a Looker Dashboard and SQL database.
+                We can run queries on the data, and visualize these queries using Seaborn and Looker.</p>
 
-   </body>
-   </html>
+            <p>Additionally, the project generates an HTML file with the Looker dashboard embedded, which can be placed
+                in an AWS S3 bucket for easy access and sharing.</p>
+
+            <h2>Features</h2>
+
+            <ul>
+                <li><strong>Data Transformation</strong>: Reads data from a CSV file and transforms it into a format
+                    suitable for analysis.</li>
+                <li><strong>SQL Integration</strong>: Loads the transformed data into an SQLite database and runs various
+                    SQL queries.</li>
+                <li><strong>Data Visualization</strong>: Uses Seaborn to create visual representations of the query
+                    results.</li>
+                <li><strong>Looker Dashboard</strong>: Creates a Looker dashboard for interactive data exploration.</li>
+                <li><strong>HTML Generation</strong>: Generates an HTML file embedding the Looker dashboard.</li>
+                <li><strong>Cloud Integration</strong>: The generated HTML file can be uploaded to an AWS S3 bucket for
+                    online access.</li>
+            </ul>
+
+            <h2>Project Structure</h2>
+
+            <ul>
+                <li><code>data/</code>: Contains the original CSV file and any additional data files.</li>
+                <li><code>Notebooks/</code>: Project Code. Includes Python script for data transformation, SQL
+                    operations, and visualization and HTML code.</li>
+                <li><code>output_images/</code>: Stores generated output images from Seaborn plots.</li>
+                <li><code>README.md</code>: Project documentation.</li>
+                <li><code>banking_data_analysis.html</code>: Project HTML with embedded Looker Dashboard.</li>
+            </ul>
+
+            <h3>Prerequisites</h3>
+
+            <ul>
+                <li>Python 3.x</li>
+                <li>Pandas</li>
+                <li>SQLite3</li>
+                <li>Seaborn</li>
+                <li>Matplotlib</li>
+                <li>Looker SDK</li>
+                <li>AWS CLI (for S3 integration)</li>
+            </ul>
+
+            <h2>Data Dictionary</h2>
+
+            <p>The CSV file contains the following columns related to the Banking CSV File:</p>
+
+            <ul>
+                <li><strong>TransactionID</strong>: Unique identifier for each transaction</li>
+                <li><strong>AccountID</strong>: Unique identifier for each account</li>
+                <li><strong>TransactionDate</strong>: Date of the transaction</li>
+                <li><strong>Amount</strong>: Amount of money moved in the transaction</li>
+                <li><strong>TransactionType</strong>: Type of transaction (e.g., deposit, withdrawal)</li>
+                <li><strong>Description</strong>: Description of the transaction</li>
+                <li><strong>First Name</strong>: First name of the account holder</li>
+                <li><strong>Last Name</strong>: Last name of the account holder</li>
+                <li><strong>VendorID</strong>: Unique identifier for each vendor</li>
+                <li><strong>FeeID</strong>: Unique identifier for each fee</li>
+                <li><strong>FeePayable</strong>: Amount of fee payable</li>
+                <li><strong>Card</strong>: Type of card used (e.g., Virtual, Physical)</li>
+                <li><strong>MCC GroupName</strong>: Merchant Category Code group name</li>
+                <li><strong>Channel</strong>: Channel through which the transaction was made</li>
+                <li><strong>CardState</strong>: State of the card (e.g., active, inactive)</li>
+                <li><strong>CardToken</strong>: Tokenized representation of the card</li>
+            </ul>
+        </div>
+
+        <div class="column3">
+        <h5> Looker Dashboard </h5> 
+        
+        <iframe width="100%" height="1500px" src="https://lookerstudio.google.com/embed/reporting/d1e85f0d-9a43-4aab-ba44-d898cfa25feb/page/ZfY0D" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+            <h2>SQL Queries</h2>
+
+            <p>queries = </p>
+            <ul>
+    
+                <li>Select distinct transaction types: <code>SELECT DISTINCT TransactionType FROM banking_data;</code>
+                </li>
+                <li>Calculate the average transaction amount: <code>SELECT AVG(Amount) AS Avg_Amount FROM banking_data;
+                    </code></li>
+                <li>Count number of transactions per state: <code>SELECT StateID, COUNT(*) AS Transaction_Count FROM
+                        banking_data GROUP BY StateID;</code></li>
+                <li>Average transaction amount per currency: <code>SELECT Currency, AVG(Amount) AS Avg_Amount FROM
+                        banking_data GROUP BY Currency;</code></li>
+                <li>Top 5 transactions by amount: <code>SELECT TransactionDate, Amount FROM banking_data ORDER BY
+                        Amount DESC LIMIT 5;</code></li>
+            </ul>
+
+
+            <h2>Findings</h2>
+            
+              <img src="https://raw.githubusercontent.com/guzmanwolfrank/Data-SQL/main/BankSQL/output_images/plot_5.jpg" width="50%" height="50%" alt="me">
+              <img src="https://raw.githubusercontent.com/guzmanwolfrank/Data-SQL/main/BankSQL/output_images/plot_3.jpg" width="50%" height="50%" alt="me">
+              <img src="https://raw.githubusercontent.com/guzmanwolfrank/Data-SQL/main/BankSQL/output_images/currencytransact.png" width="50%" height="50%" alt="me">
+            
+            
+            
+            <p>We can see that Florida had the highest number overall of transactions while USD CASH had the highest
+                average transaction amount per currency group.</p>
+
+            <p>It is also worthy to note that Withdrawal was the most popular transaction type in the data.  Withdrawals were the most frequent transactions, Transfers, however, had the highest  amounts per transaction.</p>
+
+            <h2>Conclusion</h2>
+
+            <p>In conclusion, our analysis of the banking and money movement data reveals some interesting insights.
+                Florida emerged as the state with the highest number of transactions overall, indicating a significant
+                volume of financial activity in the region. Additionally, USD CASH stood out with the highest average
+                transaction amount per currency group, suggesting that transactions involving this currency tend to be
+                larger on average.</p>
+
+            <p>Furthermore, the dominance of Withdrawal as the most popular transaction type highlights a common
+                financial behavior among account holders. This finding underscores the importance of understanding
+                customer preferences and behaviors to tailor financial services effectively.</p>
+
+            <p>Overall, this project demonstrates the value of data analysis in uncovering patterns and trends within
+                financial datasets, providing valuable insights that can inform business strategies and decision-making
+                processes.</p>
+
+            <h2>License</h2>
+
+            <p>MIT License</p>
+
+            <p>Copyright (c) 2024 Wolfrank Guzman</p>
+
+       
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+</div>
+</body>
+</html>
+
