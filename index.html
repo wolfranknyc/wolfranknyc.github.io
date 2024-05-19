@@ -1,86 +1,3 @@
-import pandas as pd
-import sqlite3
-import seaborn as sns
-import matplotlib.pyplot as plt
-import os
-import warnings
-import boto3
-from botocore.exceptions import NoCredentialsError
-
-# Ignore warnings
-warnings.filterwarnings("ignore")
-
-# Set seaborn color palette to 'viridis'
-sns.set_palette('Blues')
-
-# File path to the CSV file
-file_path = 'https://raw.githubusercontent.com/guzmanwolfrank/Data-SQL/main/BankSQL/data/datagen/banking_data.csv'
-
-# Read CSV file into pandas DataFrame
-df = pd.read_csv(file_path)
-
-# Connect to SQLite database (or create it)
-conn = sqlite3.connect('banking_data.db')
-
-# Convert DataFrame to SQL
-df.to_sql('banking_data', conn, if_exists='replace', index=False)
-
-# Function to run SQL query and return the result as a DataFrame
-def run_query(query):
-    return pd.read_sql_query(query, conn)
-
-# Define SQL queries with corresponding questions
-queries = [
-    ("SELECT * FROM banking_data LIMIT 10;", "Select first 10 rows"),  # 1. Select first 10 rows
-    ("SELECT COUNT(*) AS Total_Transactions FROM banking_data;", "Count the number of rows"),  # 2. Count the number of rows
-    ("SELECT DISTINCT TransactionType FROM banking_data;", "Select distinct transaction types"),  # 3. Select distinct transaction types
-    ("SELECT AVG(Amount) AS Avg_Amount FROM banking_data;", "Calculate the average transaction amount"),  # 4. Calculate the average transaction amount
-    ("SELECT State, COUNT(*) AS Transaction_Count FROM banking_data GROUP BY State;", "Count number of transactions per state"),  # 5. Count number of transactions per state
-    ("SELECT Currency, AVG(Amount) AS Avg_Amount FROM banking_data GROUP BY Currency;", "Average transaction amount per currency"),  # 6. Average transaction amount per currency
-    ("SELECT TransactionDate, Amount FROM banking_data ORDER BY Amount DESC LIMIT 5;", "Top 5 transactions by amount"),  # 7. Top 5 transactions by amount
-]
-
-# Execute queries and store the results
-results = [run_query(query[0]) for query in queries]
-
-# Close the connection
-conn.close()
-
-# Create visualizations using seaborn
-sns.set(style="whitegrid", palette="Blues")
-
-# Save Seaborn images as JPEG files
-output_folder = "output_images"
-if not os.path.exists(output_folder):
-    os.makedirs(output_folder)
-
-# Generate and save Seaborn plots
-for i, (query, question) in enumerate(queries, 1):
-    plt.figure(figsize=(10, 6))
-    if i == 6:
-        plt.figure(figsize=(12, 6))
-        sns.distplot(results[i-1]['Avg_Amount'], color='blue')
-        plt.title("Distribution of Average Transaction Amount per Currency")
-        plt.xlabel("Average Transaction Amount")
-        plt.ylabel("Density")
-        image_path = os.path.join(output_folder, "output.png")
-    else:
-        if len(results[i-1].columns) == 1:  # If there's only one column
-            sns.barplot(data=results[i-1], x=results[i-1].columns[0], y=results[i-1].index, palette="Blues")
-            plt.xlabel(results[i-1].columns[0])
-        else:
-            sns.barplot(data=results[i-1], x=results[i-1].columns[0], y=results[i-1].columns[1], palette="Blues")
-            plt.xlabel(results[i-1].columns[0])
-            plt.ylabel(results[i-1].columns[1])
-        plt.title(question)
-        image_path = os.path.join(output_folder, f"plot_{i}.jpg")
-        if i == 5:  # Rotate x-axis labels for query 5 plot
-            plt.xticks(rotation=90)
-    plt.savefig(image_path)
-    plt.close()
-
-# Generate HTML content
-html_content = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -335,19 +252,6 @@ html_content = """
         <p>MIT License</p>
         <p>Copyright (c) 2024 Wolfrank Guzman</p>
 
-            
-"""
-
-# Close the HTML content
-html_content += """
-</div>
+        </div>
 </body>
 </html>
-"""
-
-# Save HTML content to a file
-html_file_path = "banking_data_analysis.html"
-with open(html_file_path, "w") as html_file:
-    html_file.write(html_content)
-
-print(f"HTML file saved to: {os.path.abspath(html_file_path)}")
