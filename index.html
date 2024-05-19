@@ -1,5 +1,84 @@
+import pandas as pd
+import sqlite3
+import seaborn as sns
+import matplotlib.pyplot as plt
+import os
+import warnings
 
+# Ignore warnings
+warnings.filterwarnings("ignore")
 
+# Set seaborn color palette to 'viridis'
+sns.set_palette('Blues')
+
+# File path to the CSV file
+file_path = 'https://raw.githubusercontent.com/guzmanwolfrank/Data-SQL/main/BankSQL/data/datagen/banking_data.csv'
+
+# Read CSV file into pandas DataFrame
+df = pd.read_csv(file_path)
+
+# Connect to SQLite database (or create it)
+conn = sqlite3.connect('banking_data.db')
+
+# Convert DataFrame to SQL
+df.to_sql('banking_data', conn, if_exists='replace', index=False)
+
+# Function to run SQL query and return the result as a DataFrame
+def run_query(query):
+    return pd.read_sql_query(query, conn)
+
+# Define SQL queries with corresponding questions
+queries = [
+    ("SELECT * FROM banking_data LIMIT 10;", "Select first 10 rows"),  # 1. Select first 10 rows
+    ("SELECT COUNT(*) AS Total_Transactions FROM banking_data;", "Count the number of rows"),  # 2. Count the number of rows
+    ("SELECT DISTINCT TransactionType FROM banking_data;", "Select distinct transaction types"),  # 3. Select distinct transaction types
+    ("SELECT AVG(Amount) AS Avg_Amount FROM banking_data;", "Calculate the average transaction amount"),  # 4. Calculate the average transaction amount
+    ("SELECT State, COUNT(*) AS Transaction_Count FROM banking_data GROUP BY State;", "Count number of transactions per state"),  # 5. Count number of transactions per state
+    ("SELECT Currency, AVG(Amount) AS Avg_Amount FROM banking_data GROUP BY Currency;", "Average transaction amount per currency"),  # 6. Average transaction amount per currency
+    ("SELECT TransactionDate, Amount FROM banking_data ORDER BY Amount DESC LIMIT 5;", "Top 5 transactions by amount"),  # 7. Top 5 transactions by amount
+]
+
+# Execute queries and store the results
+results = [run_query(query[0]) for query in queries]
+
+# Close the connection
+conn.close()
+
+# Create visualizations using seaborn
+sns.set(style="whitegrid", palette="Blues")
+
+# Save Seaborn images as JPEG files
+output_folder = "output_images"
+if not os.path.exists(output_folder):
+    os.makedirs(output_folder)
+
+# Generate and save Seaborn plots
+for i, (query, question) in enumerate(queries, 1):
+    plt.figure(figsize=(10, 6))
+    if i == 6:
+        plt.figure(figsize=(12, 6))
+        sns.distplot(results[i-1]['Avg_Amount'], color='blue')
+        plt.title("Distribution of Average Transaction Amount per Currency")
+        plt.xlabel("Average Transaction Amount")
+        plt.ylabel("Density")
+        image_path = os.path.join(output_folder, "output.png")
+    else:
+        if len(results[i-1].columns) == 1:  # If there's only one column
+            sns.barplot(data=results[i-1], x=results[i-1].columns[0], y=results[i-1].index, palette="Blues")
+            plt.xlabel(results[i-1].columns[0])
+        else:
+            sns.barplot(data=results[i-1], x=results[i-1].columns[0], y=results[i-1].columns[1], palette="Blues")
+            plt.xlabel(results[i-1].columns[0])
+            plt.ylabel(results[i-1].columns[1])
+        plt.title(question)
+        image_path = os.path.join(output_folder, f"plot_{i}.jpg")
+        if i == 5:  # Rotate x-axis labels for query 5 plot
+            plt.xticks(rotation=90)
+    plt.savefig(image_path)
+    plt.close()
+
+# Generate HTML content
+html_content = """
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,10 +87,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banking Data Project</title>
     <style>
-       body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
         }
+         nav  {
+            background-color: #000000;
+            color: #000000;
+            min-width: 100%;
+            text-align: left;
+            font-size: 32px;
+            position: fixed;
+           
+        }
+
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 20px;
+            color: #ffffff;
+            width: 100%;
+            background-color: #000000;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 10px;
+            text-decoration: none;
+            color: #ffffff;
+             background-color: #000000;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+             background-color: #000000;
+        }
+
         a {
             color: grey;
             text-decoration: none;
@@ -37,6 +156,7 @@
         h5{
             font-size: 44px;
         }
+        
         pre {
             background-color: #f4f4f4;
             padding: 10px;
@@ -60,6 +180,8 @@
                .column3 {
             width: ;
             margin-bottom: 40px;
+            margin-top:40px;
+            margin: 50px;
           
         }
         .query {
@@ -94,14 +216,25 @@
 </head>
 
 <body>
+ <nav>
+            <div>
+                <ul>
+                            <li><a href="#">BankSQL >>  Short Term Credit Transactions Data Analysis</a></li>
+                </ul>
+            </div>
+        </nav>
 
     <div class="row">
         <div class="column3">
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
             <h1>Banking Data Project</h1>
   <p>  Wolfrank Guzman >> @guzmanwolfrank: Github >> email: guzmanwolfrank@gmail.com >> c: 917.443.1411 <p>
             <h2>Overview</h2>
-                          <p>Visit <a href="https://github.com/guzmanwolfrank/Data-SQL/blob/main/BankSQL/readme.md" target="_blank" title="Github Project Readme">Github Project Link</a> for more information.</p>
-
+          
             
             <p>This project demonstrates the process of transforming a CSV file into a Looker Dashboard and SQL database.
                 We can run queries on the data, and visualize these queries using Seaborn and Looker.</p>
@@ -173,9 +306,6 @@
 
         <div class="column3">
         <h5> Looker Dashboard </h5> 
-                <p>Visit <a href="https://lookerstudio.google.com/s/sCzYYs0U1Kk" target="_blank" title="Looker Dashboard">Looker Dashboard</a> for more information.</p>
-
-            
         
         <iframe width="100%" height="1500px" src="https://lookerstudio.google.com/embed/reporting/d1e85f0d-9a43-4aab-ba44-d898cfa25feb/page/ZfY0D" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
             <h2>SQL Queries</h2>
@@ -198,9 +328,9 @@
 
             <h2>Findings</h2>
             
-              <img src="https://raw.githubusercontent.com/guzmanwolfrank/Data-SQL/main/BankSQL/output_images/plot_5.jpg" width="60%" height="60%" alt="me">
-              <img src="https://raw.githubusercontent.com/guzmanwolfrank/Data-SQL/main/BankSQL/output_images/plot_3.jpg" width="60%" height="60%" alt="me">
-              <img src="https://raw.githubusercontent.com/guzmanwolfrank/Data-SQL/main/BankSQL/output_images/currencytransact.png" width="60%" height="60%" alt="me">
+              <img src="https://raw.githubusercontent.com/guzmanwolfrank/Data-SQL/main/BankSQL/output_images/plot_5.jpg" width="50%" height="50%" alt="me">
+              <img src="https://raw.githubusercontent.com/guzmanwolfrank/Data-SQL/main/BankSQL/output_images/plot_3.jpg" width="50%" height="50%" alt="me">
+              <img src="https://raw.githubusercontent.com/guzmanwolfrank/Data-SQL/main/BankSQL/output_images/currencytransact.png" width="50%" height="50%" alt="me">
             
             
             
@@ -238,8 +368,20 @@
 
 </html>
 
+"""
 
+
+
+# Close the HTML content
+html_content += """
 </div>
 </body>
 </html>
+"""
 
+# Save HTML content to a file
+html_file_path = "banking_data_analysis.html"
+with open(html_file_path, "w") as html_file:
+    html_file.write(html_content)
+
+print(f"HTML file saved to: {os.path.abspath(html_file_path)}")
