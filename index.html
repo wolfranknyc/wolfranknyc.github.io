@@ -140,6 +140,39 @@
         .column-left, .column-right {
             width: 48%;
         }
+        /* Media Queries for Responsive Design */
+
+@media (max-width: 1200px) {
+    .column, .column2, .column3 {
+        width: 100%;
+        margin: 20px 0;
+    }
+    
+    .two-column-layout {
+        flex-direction: column;
+    }
+    
+    .column-left, .column-right {
+        width: 100%;
+    }
+    
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        padding: 10px;
+        font-size: 24px;
+    }
+
+    .image-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
     </style>
 </head>
 <body>
